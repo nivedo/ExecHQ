@@ -14,6 +14,7 @@ body {
     font-family: "proxima-nova";
     font-size: 68px;
     line-height: 1.25em;
+    color: #546673;
   }
 
   .highlight {
@@ -24,6 +25,7 @@ body {
     position: relative;
     font-size: 22px;
     font-family: "Adobe-garamond-pro";
+    color: #546673;
 
     span {
       background: #f1f4f6;
@@ -48,9 +50,14 @@ body {
   }
 }
 
+.alert {
+  font-size: 0.9em;
+}
+
 .splash-form {
   margin: 0 auto;
   font-family: "proxima-nova";
+  font-size: 0.9em;
 
   input {
     margin: 10px auto;
@@ -65,10 +72,6 @@ body {
 
   .reg-error {
     border: 1px solid lighten(#ff7e8a,8);
-  }
-
-  .switch {
-    font-size: 1.1em;
   }
 
   #signup_form {

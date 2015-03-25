@@ -9,17 +9,13 @@
       .horz-links
         %ul
           %li
-            //= link_to image_tag("calendar.svg"), "#"
-            = link_to "Calendar", "#", :class => "calendar-icon"
+            = link_to "Description", "#description"
+          %li.active
+            = link_to "Calendar", "#calendar"
           %li
-            //= link_to image_tag("price.svg"), "#"
-            = link_to "Pricing", "#"
+            = link_to "Pricing", "#pricing"
           %li
-            //= link_to image_tag("pictures.svg"), "#"
-            = link_to "Photos", "#"
+            = link_to "Photos", "#photos"
           %li
-            //= link_to image_tag("television.svg"), "#"
-            = link_to "Amenities", "#"
-          %li
-            //= link_to image_tag("home.svg"), "#"
-            = link_to "Description", "#"
+            = link_to "Amenities", "#amenities"
+          

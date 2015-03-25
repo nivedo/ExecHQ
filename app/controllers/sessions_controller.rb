@@ -12,9 +12,8 @@ class SessionsController < ApplicationController
       session[:user_id] = m.id
       redirect_to root_url, :notice => "Logged in!"
     else
-      flash.now.alert = "Invalid email or password."
       @splash_override = true;
-      render "new"
+      redirect_to login_url, :alert => "Invalid email or password."
     end
   end
 
