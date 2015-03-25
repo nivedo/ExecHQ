@@ -20,12 +20,13 @@ body {
   overflow: hidden;
   background: white;
   min-height: 100%;
-  padding: 50px 60px;
+  //padding: 50px 60px;
 }
 
 .inner-wrap {
   position: relative;
   width: 100%;
+  padding: 50px 60px;
 }
 
 .margin3 {
@@ -39,7 +40,7 @@ body {
 
 .col8 {
   float: left;
-  width: 66.6666%;
+  width: 75.0000%;
 }
 
 .pad1 { padding: 10px; }

@@ -3,6 +3,7 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    @use_gmap = true
     respond_with @property
   end
 
