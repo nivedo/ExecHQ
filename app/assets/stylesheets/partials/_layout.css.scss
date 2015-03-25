@@ -1,0 +1,50 @@
+
+* {
+  margin: 0;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: transparent;
+}
+
+.outer-wrap {
+  position: relative;
+  overflow: hidden;
+  background: white;
+  min-height: 100%;
+  padding: 50px 60px;
+}
+
+.inner-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.margin3 {
+  margin-left: 25%;
+}
+
+.col3 {
+  float: left;
+  width: 25.0000%;
+}
+
+.col8 {
+  float: left;
+  width: 66.6666%;
+}
+
+.pad1 { padding: 10px; }
+.pad2 { padding: 20px; }
+.pad3 { padding: 30px; }
+.pad4 { padding: 40px; }
+.pad5 { padding: 50px; }
+.pad6 { padding: 60px; }

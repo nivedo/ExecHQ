@@ -1,0 +1,6 @@
+.directory
+  %ul
+    - @managers.each do |m|
+      %li
+        .box-right
+          = link_to m.display_name, root_url

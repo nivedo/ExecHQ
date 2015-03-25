@@ -1,0 +1,35 @@
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+input:not([type="checkbox"]), select, textarea {
+  @extend .block;
+  //-webkit-appearance: none;
+  //-moz-appearance: none;
+  //background: #fff;
+
+  border: 1px solid $border-gray;
+  padding: 8px 2%;
+  margin-bottom: 10px;
+
+}
+
+input[type="submit"] {
+  @extend .block;
+  padding: 8px 2%;
+
+  max-width: 250px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+
+  border-radius: $default-radius;
+  background-color: $accent-color;
+
+  color: white;
+  font: {
+    family: $font-default, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    size: 1.2em;
+  }
+}

@@ -1,0 +1,521 @@
+.notice-container {
+  margin: 0 auto;
+  font-size: 1em;
+  color: $blue-gray;
+  text-align: center;
+  
+  padding: 0.5em 0;
+
+  background-color: $blue-white;
+
+  width: 100%;
+}
+
+.title-wrapper {
+  margin: 0 auto;
+  font-size: 0.8em;
+  color: $blue-gray;
+  text-align: center;
+  
+  padding: 0.25em 3%;
+
+  background-color: $blue-white;
+
+  width: 94%;
+}
+
+.main-title {
+  padding: 0.5em 0;
+
+  border-bottom: 1px solid $border-gray;
+
+  @media (min-width: $transition-width) {
+    padding: 0.5em 0;
+  }
+
+  .left {
+    font-weight: 300;
+    font-size: 1.5em;
+  }
+
+  label {
+    float: right;
+    text-align: right;
+    color: $accent-color;
+    cursor: pointer;
+
+    img {
+      width: 1.3em;
+      height: auto;
+      display: inline-block;
+      vertical-align: middle;
+      margin-bottom: 0.3em;
+    }
+
+  }
+}
+
+.content-actions {
+  background: transparent;
+  color: lighten($blue-gray,40);
+  margin-top: 1.5em;
+  height: 1.25em;
+  width: 100%;
+
+  label {
+    float: left;
+    text-align: left;
+    color: $accent-color;
+    cursor: pointer;
+
+    img {
+      width: 1.3em;
+      height: auto;
+      display: inline-block;
+      vertical-align: middle;
+      margin-bottom: 0.3em;
+    }
+  }
+
+  ul li {
+    float: left;
+    margin-right: 0.25em;
+
+    &:not(:first-child):before {
+      font-weight: bold;
+      content: "·"
+    }
+
+    a {
+      color: $accent-color;
+    }
+  }
+
+  .soft {
+    color: lighten($blue-gray,40);
+  }
+}
+
+.directory {
+  //display: block;
+  margin: 0 auto;
+
+  img {
+    border-radius: 0px;
+  }
+
+  ul {
+    text-align: left;
+  }
+
+  .avatar {
+    display: inline-block;
+    float: left;
+    height: 3.5em;
+    padding: 0.5em 0;
+
+    img {
+      border-radius: $default-radius;
+      height: 100%;
+      margin-right: 1em;
+    }
+  }
+
+  li {
+    @include clearfix;
+    display: block;
+    margin: 0 auto;
+    padding: 0.5em 0;
+    border-bottom: 1px solid $border-gray;
+
+    &:last-child {
+      border: none;
+    }
+
+    zoom: 1;
+    width: 100%;
+    height: 4.5em;
+
+    color: lighten($blue-gray,40);
+
+    a {
+      color: $accent-color;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+
+  .box-right {
+    margin-top: 0.5em;
+  }
+}
+
+.box-wrapper {
+  width: 100%;
+  display: block;
+  padding: 1em 1em;
+
+  @media (min-width: $transition-width) {
+    padding-left: 0.25em;
+  }
+
+  //background-color: $off-white;
+
+  border-bottom: 1px solid $border-gray;
+
+  &:last-child {
+    border: none;
+  }
+
+  .box-content {
+    margin-right: 1.5em;
+    margin-top: 1em;
+  }
+
+  // JN NOTE: Hacky solution ... fix later
+  .box-image {
+    img {
+      width: 107%;
+      max-width: 400px;
+      margin-left: -1em;
+      height: auto;
+
+      @media (min-width: $transition-width) {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .summary-content {
+    margin-right: 1.5em;
+    margin-left: 3em
+  }
+
+  a {
+    text-decoration: none;
+    color: $accent-color;
+      
+    &:hover {
+      color: darken($accent-color, 5);
+    }
+  }
+
+  .box-top a {
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .alignright {
+    float: right;
+  }
+
+  h2 {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: $accent-color;
+  }
+
+  .line-name {
+    margin-bottom: 0.25em;
+  }
+  
+  .time-text {
+    font-size: 1em;
+    color: lighten($blue-gray,40);
+  }
+
+  .passive-text {
+    font-size: 1em;
+    font-weight: bold;
+    color: lighten($blue-gray,10);
+  }
+
+  .avatar {
+    width: 2.5em;
+    height: 100%;
+    padding-right: 0.5em;
+    float: left;
+    display: block;
+
+    img {
+      width: 90%;
+      border-radius: $default-radius;
+    }
+  }
+}
+
+
+.box-description {
+  h1, h2, h3 {
+    color: #333;
+    margin-bottom: 1em;
+  }
+
+  p, ul, dl, table, pre {
+    margin-bottom: 1em;
+  }
+
+  ul {
+    list-style: disc inside;
+  }
+}
+
+.comment {
+  background: $off-white;
+  padding-left: 1em;
+
+  width: 94%;
+
+  .summary-content {
+    margin-right: 0.5em;
+  }
+
+  &:first-child {
+    @include border-top-radius($default-radius);
+  }
+
+  border-top: none;
+}
+
+.reply-form {
+  padding-bottom: 0.25em;
+  margin-bottom: 1.5em;
+  @include border-bottom-radius($default-radius);
+}
+
+.push {
+  height: $footer-height;
+}
+
+.reply-box {
+  position: relative;
+  bottom: 0;
+  //height: 250px;
+  background-color: white;
+  //border-top: 2px solid $border-gray;
+
+  width: 100%;
+
+  display: none;
+}
+
+.reply-wrapper {
+  display: block;
+  margin: 0 auto;
+  max-width: $max-width;
+
+  height: 100%;
+
+  color: $blue-gray;
+}
+
+.reply-footer {
+  position: fixed;
+  bottom: 0;
+
+  background-color: white;
+  box-shadow: 0 0 4px darken($border-gray,20);
+  //border-top: 2px solid $border-gray;
+  color: $accent-color;
+
+  width: 100%;
+}
+
+.reply-top {
+  padding-left: 0.5em;
+  height: $footer-height;
+  font-size: 1.2em;
+
+  //position: absolute;
+  //display:block;
+  //left: 50%;
+  //margin-left: -40px;
+
+  label {
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  img {
+    width: 2em;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  span {
+    line-height: $footer-height;
+  }
+}
+
+// Messanging
+
+.message-wrapper {
+  //border: none;
+  padding: 0;
+
+  .clickable {
+    padding: 1.25em 1em 1.5em;
+  }
+
+  .avatar {
+    display: inline-block;
+    float: left;
+    height: 3.5em;
+    width: 4.75em;
+    padding: 0;
+
+    position: relative;
+
+    img {
+      border-radius: 99px;
+      height: 100%;
+      width: 3.5em;
+      margin-right: 1em;
+    }
+
+    .first img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 75%;
+      width: 2.5em;
+      z-index: 0;
+    }
+
+    .second img {
+      position: absolute;
+      top: 1.25em;
+      left: 1.25em;
+      border: 3px solid white;
+
+      height: 75%;
+      width: 2.5em;
+      z-index: 1;
+    }
+  }
+
+  .time-text {
+    display: inline-block;
+    float: right;
+  }
+
+  .passive-text {
+    font-weight: normal;
+  }
+
+  .message-text {
+    color: #333;
+  }
+
+  .summary-content {
+    margin-left: 4.5em;
+  }
+
+  &:hover {
+    background: $off-white;
+  }
+}
+
+.message-head {
+  //@include clearfix;
+  font-weight: 500;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  //padding: 0.5em 0;
+  width: 100%;
+
+  color: $accent-color;
+
+  //background-color: $off-white;
+
+  .three:not(:last-child):after {
+    content: ",";
+  }
+
+  .two:last-child:before, .three:last-child:before {
+    content: "and ";
+  }
+
+  ul li {
+    float: left;
+    margin-right: 0.25em;
+
+    &:not(:last-child):after {
+      content: ","
+    }
+
+    &:first-child {
+      //text-indent: 0.5em;
+    }
+  }
+}
+
+.chat-container {
+  margin: 1em 0;
+}
+
+.chat-wrapper {
+  @include clearfix;
+  padding: 0.5em 0;
+
+  @include accentlink;
+
+  .avatar {
+    width: 3em;
+    height: 100%;
+    float: left;
+    display: block;
+    text-align: center;
+    
+    img {
+      border-radius: $default-radius;
+      margin: 0 auto;
+      width: 2em;
+    }
+  }
+}
+
+.chat-left {
+  float: left;
+  width: 4.5em;
+}
+
+.chat-right {
+  float: left;
+  background: $blue-white;
+  max-width: 25em;
+  padding: 1em 1.25em;
+  border-radius: $default-radius;
+}
+
+.chat-self {
+  background: $accent-color;
+  color: white;
+  //float: right;
+}
+
+.chat-reply-form {
+  padding: 0.75em 0.75em 0;
+  width: 35em;
+  max-width: 35em;
+
+  form {
+    
+  }
+}
+
+// Hacky reply footer stuff
+
+[type=checkbox] {
+  display: none;
+}
+
+label > * { pointer-events: none; }
+
+:checked + div {
+  display: block !important;
+}

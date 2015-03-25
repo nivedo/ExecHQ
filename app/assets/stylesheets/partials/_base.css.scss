@@ -1,0 +1,101 @@
+
+// JARVIS Base CSS
+
+@function pem($px, $base: 16) {
+    @return ($px / $base) + em;
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  *zoom: 1;
+}
+
+@mixin accentlink {
+  a {
+    text-decoration: none;
+    color: $accent-color;
+      
+    &:hover {
+      color: darken($accent-color, 5);
+    }
+  }
+}
+
+// Colors
+
+$font-default: "proxima-nova";
+$header-font: "futura-pt";
+
+$off-white: #fcfcfc;
+$blue-white: #f1f4f6;
+$blue-gray: #546673;
+$border-gray: #e8eced;
+$off-white: #f9f9f9;
+$accent-color: #538dc2;
+
+$sidebar-color: $blue-white;
+$border-gray: darken($border-gray, 5);
+
+// Sizes
+
+$side-padding: 20px;
+$navbar-height: 50px;
+
+$footer-height: 40px;
+
+$sidebar-width: 180px;
+
+$max-width: 940px;
+$max-read-width: 600px;
+$transition-width: 750px;
+
+$default-radius: 3px;
+
+// Extends
+
+.bold {
+  font-weight: bold;
+}
+
+.floatleft {
+  float: left;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.opaque {
+  opacity: 0;
+}
+
+.block {
+  display: block;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-width: pem(320);
+  background: white;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}

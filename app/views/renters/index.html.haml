@@ -1,0 +1,6 @@
+.directory
+  %ul
+    - @renters.each do |renter|
+      %li
+        .box-right
+          = link_to renter.display_name, root_url

@@ -1,0 +1,16 @@
+.form-wrapper
+  .form-info
+    %h1 Create Property Manager
+
+    .error-messages
+      - for message in @manager.errors.full_messages
+        %p #{message}
+
+  = form_for(@manager, :html => { :class => 'form-fields' }) do |f|
+    %fieldset
+      = f.email_field :email, :placeholder => "Email", :class => "req", :autocomplete => :off
+      = f.text_field :first_name, :placeholder => 'First Name', :class => 'req', :autocomplete => :off
+      = f.text_field :last_name, :placeholder => 'Last Name', :class => 'req', :autocomplete => :off
+      = f.password_field :password, :placeholder => "Password", :class => "req", :autocomplete => :off
+      = f.password_field :password_confirmation, :placeholder => "Confirm Password", :class => "req", :autocomplete => :off
+    = f.submit "Create", :class => "submit"
