@@ -4,6 +4,7 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     @use_gmap = true
+    @nowrap = true
     respond_with @property
   end
 

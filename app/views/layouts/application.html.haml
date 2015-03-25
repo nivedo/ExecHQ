@@ -30,5 +30,8 @@
         .outer-wrap.margin3.col8
           - if @use_gmap
             #map-canvas
-          .inner-wrap
+          - if @nowrap
             = yield
+          - else
+            .inner-wrap
+              = yield

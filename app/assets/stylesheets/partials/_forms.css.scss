@@ -32,3 +32,13 @@ input[type="submit"] {
     size: 1.2em;
   }
 }
+
+.map-location {
+  width: 100%;
+
+  input {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+  }
+}

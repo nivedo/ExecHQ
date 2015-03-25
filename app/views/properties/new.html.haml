@@ -1,13 +1,25 @@
-.form-wrapper
-  .form-info
-    %h1 Add New Property
-
-    .error-messages
-      - for message in @property.errors.full_messages
-        %p #{property}
-
-  = form_for(@property, :html => { :class => 'form-fields' }) do |f|
-    %fieldset
-      = f.text_field :location, :placeholder => 'Location', :id => 'gmap_location', :class => 'req', :autocomplete => :off
-      = f.text_field :description, :placeholder => 'Description', :class => 'req', :autocomplete => :off
-    = f.submit "Create", :class => "submit"
+= form_for(@property, :html => { :class => 'form-fields' }) do |f|
+  .map-location  
+    = f.text_field :location, :placeholder => 'Where is the property located?', :id => 'gmap_location', :class => 'req', :autocomplete => :off
+  .form-wrapper
+    .form-info
+      .error-messages
+        - for message in @property.errors.full_messages
+          %p #{property}
+      .horz-links
+        %ul
+          %li
+            //= link_to image_tag("calendar.svg"), "#"
+            = link_to "Calendar", "#", :class => "calendar-icon"
+          %li
+            //= link_to image_tag("price.svg"), "#"
+            = link_to "Pricing", "#"
+          %li
+            //= link_to image_tag("pictures.svg"), "#"
+            = link_to "Photos", "#"
+          %li
+            //= link_to image_tag("television.svg"), "#"
+            = link_to "Amenities", "#"
+          %li
+            //= link_to image_tag("home.svg"), "#"
+            = link_to "Description", "#"
