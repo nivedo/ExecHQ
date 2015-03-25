@@ -4,7 +4,14 @@
     %title ExecHQ
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"
+    - if @use_gmap
+      = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"
+    = javascript_include_tag "https://use.typekit.net/dcn1qjt.js"
+    - if @splash_override
+      = stylesheet_link_tag    "splash"
+      = javascript_include_tag "splash"
+    :javascript
+      try{Typekit.load();}catch(e){}
     = csrf_meta_tags
 
     %meta{:name => "description", :content => ""}
@@ -13,8 +20,12 @@
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}
 
-    %body
-      = render 'shared/sidebar'
-      .outer-wrap.margin3.col8
-        .inner-wrap
-          = yield
+    - if @splash_override
+      %body
+        = yield
+    - else
+      %body
+        = render 'shared/sidebar'
+        .outer-wrap.margin3.col8
+          .inner-wrap
+            = yield
