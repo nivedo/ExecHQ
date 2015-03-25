@@ -5,7 +5,7 @@
     .welcome Welcome, #{current_user.display_name}!
   %nav
     = link_to "Users", root_url, :class => "h3"
-    = link_to "Create Admin", new_manager_url, :class => ( current_page?( new_manager_url ) ? "small active" : "small") 
+    = link_to "Create Manager", new_manager_url, :class => ( current_page?( new_manager_url ) ? "small active" : "small") 
     = link_to "Create Renter", new_renter_url, :class => ( current_page?( new_renter_url ) ? "small active" : "small")
     - if current_user
       = link_to "My Properties", root_url
