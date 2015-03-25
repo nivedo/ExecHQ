@@ -1,6 +1,16 @@
 .directory
-  %ul
+  %h1 View Renters
+  %table
+    %thead
+      %tr
+        %th Display Name
+        %th Email
+        %th Phone
+        %th Company Name
+    %tbody
     - @renters.each do |renter|
-      %li
-        .box-right
-          = link_to renter.display_name, root_url
+      %tr
+        %th= link_to renter.display_name, renter_url(renter)
+        %th= renter.email
+        %th= renter.phone
+        %th= renter.company_name

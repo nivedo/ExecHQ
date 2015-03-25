@@ -1,6 +1,12 @@
 .directory
-  %ul
+  %h1 View Managers
+  %table
+    %thead
+      %tr
+        %th Display Name
+        %th Email
+    %tbody
     - @managers.each do |m|
-      %li
-        .box-right
-          = link_to m.display_name, root_url
+      %tr
+        %th= link_to m.display_name, manager_url(m)
+        %th= m.email
