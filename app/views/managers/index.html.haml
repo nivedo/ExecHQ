@@ -11,3 +11,6 @@
       %tr
         %th= link_to m.display_name, manager_url(m)
         %th= m.email
+        %th
+          = image_tag("iconmonstr-pencil-10-icon.svg", :alt => "Edit") 
+          = link_to image_tag("iconmonstr-x-mark-icon.svg", :alt => "Delete"), manager_url(m.id), method: :delete, remote: false

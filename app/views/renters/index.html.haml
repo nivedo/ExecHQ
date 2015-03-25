@@ -17,4 +17,4 @@
         %th= renter.company_name
         %th
           = image_tag("iconmonstr-pencil-10-icon.svg", :alt => "Edit") 
-          = image_tag("iconmonstr-x-mark-icon.svg", :alt => "Delete")
+          = link_to image_tag("iconmonstr-x-mark-icon.svg", :alt => "Delete"), renter_url(renter.id), method: :delete, remote: false
