@@ -1,2 +1,19 @@
 .profile
   %h3 #{@renter.display_name}'s Profile
+  %table
+    %tbody
+      %tr
+        %th First Name
+        %th #{@renter.first_name}
+      %tr
+        %th Last Name
+        %th #{@renter.last_name}
+      %tr
+        %th Email
+        %th #{@renter.email}
+      %tr
+        %th Phone
+        %th #{@renter.phone}
+      %tr
+        %th Company Name
+        %th #{@renter.company_name}
