@@ -24,6 +24,11 @@ class RentersController < ApplicationController
       }
     end
   end
+  
+  def show
+    @renter = Renter.find(params[:id])
+    respond_with @renter
+  end
 
   private
 
@@ -32,7 +37,8 @@ class RentersController < ApplicationController
       :email,
       :phone,
       :first_name, 
-      :last_name
+      :last_name,
+      :company_name
     )
   end
 end
