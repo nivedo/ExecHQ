@@ -2,4 +2,13 @@
   h3 {
     font-weight: bold;
   }
+
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  th,
+  td {
+    border: none;
+  }
 }

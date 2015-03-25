@@ -30,6 +30,12 @@ class RentersController < ApplicationController
     respond_with @renter
   end
 
+  def destroy
+    @renter = Renter.find(params[:id])
+    @renter.destroy
+    redirect_to :back
+  end
+
   private
 
   def renter_params

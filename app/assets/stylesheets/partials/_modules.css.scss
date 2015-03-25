@@ -4,6 +4,8 @@
 
   img {
     border-radius: 0px;
+    max-width:20px;
+    max-height:20px;
   }
 
   ul {
@@ -49,6 +51,23 @@
 
   .box-right {
     margin-top: 0.5em;
+  }
+
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  th,
+  td {
+    padding: 10px 15px;
+    border: none;
+  }
+  thead > tr {
+    color: #fff;
+    background: #9ebfdd;
+  }
+  tbody tr:nth-child(even) {
+    background: #f0f0f2;
   }
 }
 

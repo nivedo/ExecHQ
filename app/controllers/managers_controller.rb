@@ -34,6 +34,11 @@ class ManagersController < ApplicationController
     end
   end
 
+  def destroy
+    @manager = Manager.find(params[:id])
+    @manager.destroy
+    redirect_to :back
+  end
   private
 
   def manager_params
