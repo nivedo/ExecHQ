@@ -11,7 +11,7 @@
     = link_to "View Renter", renters_url, :class => ( current_page?( renters_url ) ? "small active" : "small")
     - if current_user
       = link_to "My Properties", root_url
-      = link_to "Add Property", root_url, :class => "small"
+      = link_to "Add Property", new_property_url, :class => ( current_page?( new_property_url ) ? "small active" : "small")
       = link_to "All Properties", root_url, :class => "small"
 
       = link_to "Sign Out", logout_url

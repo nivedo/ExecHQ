@@ -5,7 +5,8 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     - if @use_gmap
-      = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"
+      = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
+      = javascript_include_tag "gmaps"
     = javascript_include_tag "https://use.typekit.net/dcn1qjt.js"
     - if @splash_override
       = stylesheet_link_tag    "splash"
@@ -27,5 +28,7 @@
       %body
         = render 'shared/sidebar'
         .outer-wrap.margin3.col8
+          - if @use_gmap
+            #map-canvas
           .inner-wrap
             = yield
