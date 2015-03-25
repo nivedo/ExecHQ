@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
   #before_filter :direct_to_home, only:[:new]
 
   def new
+    @splash_override = true;
+    @manager = Manager.new
   end
   
   def create
@@ -11,6 +13,7 @@ class SessionsController < ApplicationController
       redirect_to root_url, :notice => "Logged in!"
     else
       flash.now.alert = "Invalid email or password."
+      @splash_override = true;
       render "new"
     end
   end

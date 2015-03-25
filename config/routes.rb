@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :renters
   resources :managers
   resources :properties
+  resources :sessions, only: [:create, :new, :destroy]
 
   get 'splash/index'
 
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'splash#index'
+  root 'sessions#new'
 
   get "logout", :to => "sessions#destroy", :as => "logout"
   get "login", :to => "sessions#new", :as => "login"

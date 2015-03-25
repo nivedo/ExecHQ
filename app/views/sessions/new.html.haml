@@ -1,0 +1,25 @@
+.title-wrapper
+  %strong 
+    EXEC<span class="highlight">HQ</span>
+  %h1
+    <span>Property Management</span>
+  .alert
+    - if flash[:alert].nil? == false    
+      #{flash[:alert]}
+  .splash-form
+    = form_tag(sessions_path, :url => { :action => "create" }, :id => 'login_form' ) do
+      %fieldset
+        = email_field_tag :email, nil, :placeholder => "Email", :class => "req"
+        = password_field_tag :password, nil, :placeholder => "Password", :class => "req"
+        = submit_tag "Log In", :class => "submit"
+        %span.switch
+          = link_to "New account? Sign up.", "#", id: "signup_link"
+    = form_for(@manager, :url => managers_path, :html => { :id => 'signup_form' }) do |f|
+      %fieldset
+        = f.email_field :email, :placeholder => "Email", :class => "req"
+        = f.text_field :first_name, :placeholder => "First Name", :class => "req"
+        = f.text_field :last_name, :placeholder => "Last Name", :class => "req"
+        = f.password_field :password, :placeholder => "Password", :class => "req"
+        = f.submit "Sign up", :class => "submit"
+        %span.switch
+          = link_to "Already joined? Log in.", "#", id: "login_link"
