@@ -4,6 +4,8 @@ class Manager < ActiveRecord::Base
   validates :email, uniqueness: true
 
   def display_name
-    return first_name.titleize + ' ' + last_name[0].capitalize
+    # return first_name.titleize + ' ' + last_name[0].capitalize
+    # first_name.titleize + ' ' + last_name.titleize
+    first_name + ' ' + last_name
   end
 end
