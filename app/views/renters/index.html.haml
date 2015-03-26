@@ -6,6 +6,7 @@
         = f.email_field :email, :placeholder => "Email", :class => "req", :autocomplete => :off
         = f.text_field :first_name, :placeholder => 'First Name', :class => 'req', :autocomplete => :off
         = f.text_field :last_name, :placeholder => 'Last Name', :class => 'req', :autocomplete => :off
+        = f.text_field :company_name, :placeholder => 'Company Name', :class => 'req', :autocomplete => :off
       = submit_tag "Edit", :class => "edit"
 
 - content_for :head do
@@ -13,18 +14,18 @@
     $(function() {                                              |
       $('a.edit').click(function() {                            |
         var id = $(this).attr('id');                            |
-        $.getJSON('/renters/' + id, function(data, status) {   |
+        $.getJSON('/renters/' + id, function(data, status) {    |
           console.log(data);                                    |
-          var f = $('form#renter_edit_form');                  |
-          var fields = [ 'first_name', 'last_name', 'email' ];  |
+          var f = $('form#renter_edit_form');                   |
+          var fields = [ 'first_name', 'last_name', 'email', 'company_name' ];  |
           var numFields = fields.length;                        |
           for (var i = 0; i < numFields; i++) {                 |
             var field = fields[i];                              |
-            var field_id  = 'renter_' + field;                 |
+            var field_id  = 'renter_' + field;                  |
             f.find('input#' + field_id).attr('value', data[field]); |
           }                                                     |
         });                                                     |
-        $('form#renter_edit_form').each(function() {           |
+        $('form#renter_edit_form').each(function() {            |
           $(this).attr('action', $(this).attr('action') + '/' + id) |
         })                                                      |
       })                                                        |
