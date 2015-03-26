@@ -28,6 +28,7 @@ class ManagersController < ApplicationController
   end
 
   def index
+    @manager = Manager.new
     @managers = Manager.order(:last_name);
     @title = "Manager Directory";
 
