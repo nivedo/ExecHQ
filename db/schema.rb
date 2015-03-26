@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325194538) do
+ActiveRecord::Schema.define(version: 20150326192020) do
 
   create_table "managers", force: :cascade do |t|
     t.string   "email"
@@ -26,8 +26,13 @@ ActiveRecord::Schema.define(version: 20150325194538) do
     t.text     "description"
     t.string   "location"
     t.integer  "manager_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "title"
+    t.integer  "bedrooms"
+    t.decimal  "bathrooms",   precision: 2, scale: 1
+    t.integer  "accomodates"
+    t.integer  "hometype"
   end
 
   add_index "properties", ["manager_id"], name: "index_properties_on_manager_id"

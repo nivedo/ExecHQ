@@ -1,6 +1,10 @@
 
 // Google Maps
 
+.map-wrapper {
+  display: none;
+}
+
 #map-canvas {
   height: 300px;
   margin: 0px;

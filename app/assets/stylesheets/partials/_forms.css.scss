@@ -44,16 +44,17 @@ input[type="submit"] {
     width: 100%;
     border-left: none;
     border-right: none;
-    margin-bottom: 15px;
   }
 }
 
 
 .horz-links {
   height: 45px;
-  display: table-cell;
-  vertical-align: middle;
-  padding-bottom: 20px;
+  padding-left: 25px;
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+  background-color: lighten($accent-color,0);
 
   ul {
     margin: 0;
@@ -63,8 +64,10 @@ input[type="submit"] {
 
   li {
     float: left;
-    margin-right: 20px;
     padding-bottom: 3px;
+    padding-top: 10px;
+    padding-left: 10px;
+    height: 45px;
 
     img {
       width: 20px;
@@ -75,7 +78,10 @@ input[type="submit"] {
 
     a {
       padding-left: 20px;
-      color: #333;
+      padding-right: 15px;
+      padding-bottom: 13px;
+      padding-top: 10px;
+      color: #fff;
 
       &:hover {
 
@@ -139,11 +145,12 @@ input[type="submit"] {
   }
 
   .active {
-    border-bottom: 2px solid $accent-color;
+    //border-bottom: 2px solid white;
+    background-color: lighten($accent-color, 10);
   }
 
   input[type="submit"] {
-    margin-left: 10px;
+    margin-left: 0px;
     vertical-align: middle;
     padding: 7px 10px;
     margin-top: -5px;

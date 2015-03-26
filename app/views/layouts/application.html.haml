@@ -29,8 +29,6 @@
       %body
         = render 'shared/sidebar'
         .outer-wrap.margin3.col8
-          - if @use_gmap
-            #map-canvas
           - if @nowrap
             = yield
           - else
