@@ -12,7 +12,7 @@
     - if current_user
       = link_to "My Properties", root_url
       = link_to "Add Property", new_property_url, :class => ( current_page?( new_property_url ) ? "small active" : "small")
-      = link_to "All Properties", root_url, :class => "small"
+      = link_to "Show Properties", properties_url, :class => ( current_page?( properties_url ) ? "small active" : "small")
 
       = link_to "Sign Out", logout_url
       = link_to "Modal Test", "#modal_content", :id => "go", :name => "modal_content", :rel => "leanModal"

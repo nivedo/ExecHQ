@@ -22,8 +22,14 @@ class PropertiesController < ApplicationController
     respond_with @property
   end
 
-  def update
+  def index
+    @properties = Property.order(:title);
+    @title = "My Properties"
+  end
 
+  def update
+    Property.update(params[:id],property_params)
+    redirect_to :back
   end
 
   def property_params

@@ -1,0 +1,4 @@
+- @properties.each do |property|
+  %h2
+    = link_to property.title, property_url(property.id)
+  %p #{property.description}
