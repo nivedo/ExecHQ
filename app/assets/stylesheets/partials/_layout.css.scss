@@ -38,6 +38,16 @@ body {
   width: 25.0000%;
 }
 
+.col4 {
+  float: left;
+  width: 30.0000%;
+}
+
+.col5 {
+  float: left;
+  width: 50%;
+}
+
 .col8 {
   float: left;
   width: 75.0000%;
@@ -49,3 +59,11 @@ body {
 .pad4 { padding: 40px; }
 .pad5 { padding: 50px; }
 .pad6 { padding: 60px; }
+
+.clearfix:after { 
+  content: "."; 
+  visibility: hidden; 
+  display: block; 
+  height: 0; 
+  clear: both;
+}

@@ -1,3 +1,7 @@
+.column-form {
+  margin-left: 25px;
+}
+
 fieldset {
   margin: 0;
   padding: 0;
@@ -40,5 +44,121 @@ input[type="submit"] {
     width: 100%;
     border-left: none;
     border-right: none;
+    margin-bottom: 15px;
+  }
+}
+
+
+.horz-links {
+  height: 45px;
+  display: table-cell;
+  vertical-align: middle;
+  padding-bottom: 20px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    float: left;
+    margin-right: 20px;
+    padding-bottom: 3px;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-top: -2px;
+      vertical-align: middle;
+    }
+
+    a {
+      padding-left: 20px;
+      color: #333;
+
+      &:hover {
+
+      }
+    }
+
+    a[href="#calendar"]:before {
+      content: "";
+      display: block;
+      background: image-url("calendar.svg") no-repeat;
+      background-size: 20px 20px;
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin-right: -15px;
+    }
+
+    a[href="#pricing"]:before {
+      content: "";
+      display: block;
+      background: image-url("price.svg") no-repeat;
+      background-size: 20px 20px;
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin-right: -15px;
+    }
+
+    a[href="#photos"]:before {
+      content: "";
+      display: block;
+      background: image-url("pictures.svg") no-repeat;
+      background-size: 20px 20px;
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin-right: -15px;
+    }
+
+    a[href="#amenities"]:before {
+      content: "";
+      display: block;
+      background: image-url("television.svg") no-repeat;
+      background-size: 20px 20px;
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin-right: -15px;
+    }
+
+    a[href="#description"]:before {
+      content: "";
+      display: block;
+      background: image-url("home.svg") no-repeat;
+      background-size: 20px 20px;
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin-right: -15px;
+    }
+  }
+
+  .active {
+    border-bottom: 2px solid $accent-color;
+  }
+
+  input[type="submit"] {
+    margin-left: 10px;
+    vertical-align: middle;
+    padding: 7px 10px;
+    margin-top: -5px;
+    width: 85px;
+    font-size: 1em;
+  }
+}
+
+.description-fields {
+  input, textarea, select {
+    width: 85%;
+  }
+
+  textarea {
+    min-height: 250px;
+    max-height: 300px;
   }
 }

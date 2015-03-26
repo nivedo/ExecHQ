@@ -20,7 +20,7 @@ function initialize() {
   geocoder = new google.maps.Geocoder();
 
   var mapOptions = {
-    center: new google.maps.LatLng(41.92,-87.73),
+    center: new google.maps.LatLng(41.90,-87.67),
     zoom: 13,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };

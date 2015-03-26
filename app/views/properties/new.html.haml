@@ -1,21 +1,45 @@
+- content_for :modal do
+  %h1 Hello World
+  %p The quick brown fox jumped over the lazy dog.
+
 = form_for(@property, :html => { :class => 'form-fields' }) do |f|
   .map-location  
     = f.text_field :location, :placeholder => 'Where is the property located?', :id => 'gmap_location', :class => 'req', :autocomplete => :off
-  .form-wrapper
-    .form-info
-      .error-messages
-        - for message in @property.errors.full_messages
-          %p #{property}
-      .horz-links
-        %ul
-          %li
-            = link_to "Description", "#description"
-          %li.active
-            = link_to "Calendar", "#calendar"
-          %li
-            = link_to "Pricing", "#pricing"
-          %li
-            = link_to "Photos", "#photos"
-          %li
-            = link_to "Amenities", "#amenities"
+  .error-messages
+    - for message in @property.errors.full_messages
+      %p #{property}
+  .column-form
+    .horz-links
+      %ul
+        %li.active
+          = link_to "Description", "#description"
+        %li
+          = link_to "Calendar", "#calendar"
+        %li
+          = link_to "Pricing", "#pricing"
+        %li
+          = link_to "Photos", "#photos"
+        %li
+          = link_to "Amenities", "#amenities"
+        %li
+          = f.submit "Save", :class => "submit"
+    .description-fields
+      .col5
+        %label Title
+        = f.text_field :description, :placeholder => "e.g. Sunny 1BD apartment in NYC", :class => "req"
+        .clearfix
+          .col4
+            %label Bedrooms
+            = f.select :description, [['Studio','0'],['1','1'],['2','2'],['3','3']]
+          .col4
+            %label Bathrooms
+            = f.select :description, [['0','0'],['0.5','0.5'],['1','1'],['1.5','1.5'],['2','2'],['2.5','2.5'],['3','3']]
+          .col4
+            %label Accomodates
+            = f.select :description, [['1','1'],['2','2'],['3','3'],['4','4']]
+        %label Home Type
+        = f.select :description, [['Single Family Home','0'],['Apartment / Condo','1'],['Dormitory','2']]
+      .col5
+        %label Description
+        = f.text_area :description, :placeholder => "What makes this place unique?", :class => "req"
           
