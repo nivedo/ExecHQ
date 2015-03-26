@@ -2,6 +2,15 @@
   %h1 Edit Manager
   %p The quick brown fox jumped over the lazy dog.
 
+- content_for :head do
+  %script{:type => "text/javascript"}       |
+    $(function() {                          |
+      $('a#go').click(function() {            |
+        var id = $(this).attr('id');        |
+        console.log(id);                    |
+      })                                    |
+    })                                      |
+
 .directory
   %h1 View Managers
   %table
