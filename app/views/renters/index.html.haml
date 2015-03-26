@@ -31,6 +31,26 @@
       })                                                        |
     })                                                          |
 
+.form-wrapper
+  .form-info
+    %h1 Create New Renter
+
+    .error-messages
+      - for message in @renter.errors.full_messages
+        %p #{message}
+
+  = form_for(@renter, :html => { :class => 'form-fields' }) do |f|
+    %fieldset
+      = f.email_field :email, :placeholder => "Email", :class => "req", :autocomplete => :off
+      = f.phone_field :phone, :placeholder => "Phone Number", :class => "req", :autocomplete => :off
+      = f.text_field :first_name, :placeholder => 'First Name', :class => 'req', :autocomplete => :off
+      = f.text_field :last_name, :placeholder => 'Last Name', :class => 'req', :autocomplete => :off
+      = f.text_field :company_name, :placeholder => 'Company Name', :class => 'req', :autocomplete => :off
+    = f.submit "Create", :class => "submit"
+
+%br
+%br
+
 .directory
   %h1 View Renters
   %table

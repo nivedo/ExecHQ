@@ -19,6 +19,7 @@ class RentersController < ApplicationController
   end
 
   def index
+    @renter = Renter.new
     @renters = Renter.order(:last_name);
     @title = "Renter Directory";
 
