@@ -1,3 +1,7 @@
+- content_for :modal do
+  %h1 Hello World
+  %p The quick brown fox jumped over the lazy dog.
+
 .directory
   %h1 View Managers
   %table
@@ -12,11 +16,5 @@
         %th= link_to m.display_name, manager_url(m)
         %th= m.email
         %th
-          = link_to image_tag("iconmonstr-pencil-10-icon.svg", :alt => "Edit"), "#modal-edit" 
+          = link_to image_tag("iconmonstr-pencil-10-icon.svg", :alt => "Edit"), "#modal_content", :id => "go", :name => "modal_content", :rel => "leanModal"
           = link_to image_tag("iconmonstr-x-mark-icon.svg", :alt => "Delete"), manager_url(m.id), method: :delete, remote: false if current_user != m
-
-%section{:class => "modal--show", :id => "modal-edit", :tabindex => "-1", :role => "dialog", :"aria-labelledby" => "modal-label", :"aria-hidden" => "true"}
-  .modal-inner
-    .modal-content
-      %h1 Edit Manager
-  = link_to "Close", "#!", :class => "modal-close", :title => "Close", :"data-close" => "Close", :"data-dismiss" => "modal"
