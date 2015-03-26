@@ -1,3 +1,7 @@
+- content_for :modal do
+  %h1 Edit Renters
+  %p The quick brown fox jumped over the lazy dog.
+
 .directory
   %h1 View Renters
   %table
@@ -16,5 +20,5 @@
         %th= renter.phone
         %th= renter.company_name
         %th
-          = image_tag("iconmonstr-pencil-10-icon.svg", :alt => "Edit") 
+          = link_to image_tag("iconmonstr-pencil-10-icon.svg", :alt => "Edit"), "#modal_content", :id => "go", :name => "modal_content", :rel => "leanModal"
           = link_to image_tag("iconmonstr-x-mark-icon.svg", :alt => "Delete"), renter_url(renter.id), method: :delete, remote: false

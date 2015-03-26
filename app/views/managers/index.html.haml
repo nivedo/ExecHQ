@@ -1,3 +1,32 @@
+- content_for :modal do
+  %h1 Edit Manager
+  = form_tag(managers_path, :url => { :action => "update" }, :id => 'manager_edit_form' ) do
+    %fieldset
+      = email_field_tag :email, nil, :placeholder => "Email", :class => "req", :autocomplete => :off
+      = text_field_tag :first_name, nil, :placeholder => 'First Name', :class => 'req', :autocomplete => :off
+      = text_field_tag :last_name, nil, :placeholder => 'Last Name', :class => 'req', :autocomplete => :off
+      = password_field_tag :password, nil, :placeholder => "Password", :class => "req", :autocomplete => :off
+      = password_field_tag :password_confirmation, nil, :placeholder => "Confirm Password", :class => "req", :autocomplete => :off
+    = submit_tag "Edit", :class => "edit"
+
+- content_for :head do
+  %script{:type => "text/javascript"}                           |
+    $(function() {                                              |
+      $('a.edit').click(function() {                            |
+        var id = $(this).attr('id');                            |
+        console.log(id);                                        |
+        $.getJSON('/managers/' + id, function(data, status) {   |
+          var f = $('form#manager_edit_form');                  |
+          var fields = [ 'first_name', 'last_name', 'email' ];  |
+          var numFields = fields.length;                        |
+          for (var i = 0; i < numFields; i++) {                 |
+            var field = fields[i];                              |
+            f.find('input#' + field).attr('placeholder', data[field]);  |
+          }                                                     |
+        });                                                     |
+      })                                                        |
+    })                                                          |
+
 .directory
   %h1 View Managers
   %table
@@ -12,11 +41,5 @@
         %th= link_to m.display_name, manager_url(m)
         %th= m.email
         %th
-          = link_to image_tag("iconmonstr-pencil-10-icon.svg", :alt => "Edit"), "#modal-edit" 
+          = link_to image_tag("iconmonstr-pencil-10-icon.svg", :alt => "Edit"), "#modal_content", :class => "edit", :id => m.id, :name => "modal_content", :rel => "leanModal"
           = link_to image_tag("iconmonstr-x-mark-icon.svg", :alt => "Delete"), manager_url(m.id), method: :delete, remote: false if current_user != m
-
-%section{:class => "modal--show", :id => "modal-edit", :tabindex => "-1", :role => "dialog", :"aria-labelledby" => "modal-label", :"aria-hidden" => "true"}
-  .modal-inner
-    .modal-content
-      %h1 Edit Manager
-  = link_to "Close", "#!", :class => "modal-close", :title => "Close", :"data-close" => "Close", :"data-dismiss" => "modal"
