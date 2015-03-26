@@ -6,6 +6,12 @@ class ManagersController < ApplicationController
     respond_with @manager
   end
 
+  def update
+    @manager = Manager.update_attributes(params[:manager])
+
+    respond_with @manager
+  end
+
   def create
     @manager = Manager.new(manager_params)
     
