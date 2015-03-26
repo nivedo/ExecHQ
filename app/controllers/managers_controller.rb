@@ -7,9 +7,9 @@ class ManagersController < ApplicationController
   end
 
   def update
-    @manager = Manager.update_attributes(params[:manager])
+    Manager.update(params[:id],manager_params)
 
-    respond_with @manager
+    redirect_to :back
   end
 
   def create
