@@ -15,10 +15,26 @@ class PropertiesController < ApplicationController
     respond_with @property
   end
 
+  def show
+    @property = Property.find(params[:id])
+    @use_gmap = true
+    @nowrap = true
+    respond_with @property
+  end
+
+  def update
+
+  end
+
   def property_params
     params.require(:property).permit(
       :location,
-      :description
+      :description,
+      :title,
+      :bedrooms,
+      :bathrooms,
+      :accomodates,
+      :hometype
     )
   end
 end

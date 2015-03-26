@@ -1,5 +1,4 @@
-.map-wrapper
-  #map-canvas
+#map-canvas{:title => @property.location}
 = form_for(@property, :html => { :class => 'form-fields' }) do |f|
   //.map-location  
   //  = f.text_field :location, :placeholder => 'Where is the property located?', :id => 'gmap_location', :class => 'req', :autocomplete => :off
@@ -19,7 +18,7 @@
       %li
         = link_to "Amenities", "#amenities"
       %li
-        = f.submit "Save", :class => "submit"
+        = f.submit "Update", :class => "submit"
   .column-form
     .description-fields
       .col5
