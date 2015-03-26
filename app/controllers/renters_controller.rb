@@ -6,6 +6,12 @@ class RentersController < ApplicationController
     respond_with @renter
   end
 
+  def update
+    Renter.update(params[:id],renter_params)
+
+    redirect_to :back
+  end
+
   def create
     @renter = Renter.new(renter_params)
     @renter.save
@@ -13,6 +19,7 @@ class RentersController < ApplicationController
   end
 
   def index
+    @renter = Renter.new
     @renters = Renter.order(:last_name);
     @title = "Renter Directory";
 

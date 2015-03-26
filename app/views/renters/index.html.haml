@@ -1,6 +1,55 @@
 - content_for :modal do
   %h1 Edit Renters
-  %p The quick brown fox jumped over the lazy dog.
+  = form_tag(renters_path, :url => { :action => "update" }, :id => 'renter_edit_form', :method => :patch ) do
+    %fieldset
+      = fields_for :renter do |f|
+        = f.email_field :email, :placeholder => "Email", :class => "req", :autocomplete => :off
+        = f.text_field :first_name, :placeholder => 'First Name', :class => 'req', :autocomplete => :off
+        = f.text_field :last_name, :placeholder => 'Last Name', :class => 'req', :autocomplete => :off
+        = f.text_field :company_name, :placeholder => 'Company Name', :class => 'req', :autocomplete => :off
+      = submit_tag "Edit", :class => "edit"
+
+- content_for :head do
+  %script{:type => "text/javascript"}                           |
+    $(function() {                                              |
+      $('a.edit').click(function() {                            |
+        var id = $(this).attr('id');                            |
+        $.getJSON('/renters/' + id, function(data, status) {    |
+          console.log(data);                                    |
+          var f = $('form#renter_edit_form');                   |
+          var fields = [ 'first_name', 'last_name', 'email', 'company_name' ];  |
+          var numFields = fields.length;                        |
+          for (var i = 0; i < numFields; i++) {                 |
+            var field = fields[i];                              |
+            var field_id  = 'renter_' + field;                  |
+            f.find('input#' + field_id).attr('value', data[field]); |
+          }                                                     |
+        });                                                     |
+        $('form#renter_edit_form').each(function() {            |
+          $(this).attr('action', $(this).attr('action') + '/' + id) |
+        })                                                      |
+      })                                                        |
+    })                                                          |
+
+.form-wrapper
+  .form-info
+    %h1 Create New Renter
+
+    .error-messages
+      - for message in @renter.errors.full_messages
+        %p #{message}
+
+  = form_for(@renter, :html => { :class => 'form-fields' }) do |f|
+    %fieldset
+      = f.email_field :email, :placeholder => "Email", :class => "req", :autocomplete => :off
+      = f.phone_field :phone, :placeholder => "Phone Number", :class => "req", :autocomplete => :off
+      = f.text_field :first_name, :placeholder => 'First Name', :class => 'req', :autocomplete => :off
+      = f.text_field :last_name, :placeholder => 'Last Name', :class => 'req', :autocomplete => :off
+      = f.text_field :company_name, :placeholder => 'Company Name', :class => 'req', :autocomplete => :off
+    = f.submit "Create", :class => "submit"
+
+%br
+%br
 
 .directory
   %h1 View Renters
@@ -20,5 +69,5 @@
         %th= renter.phone
         %th= renter.company_name
         %th
-          = link_to image_tag("iconmonstr-pencil-10-icon.svg", :alt => "Edit"), "#modal_content", :id => "go", :name => "modal_content", :rel => "leanModal"
+          = link_to image_tag("iconmonstr-pencil-10-icon.svg", :alt => "Edit"), "#modal_content", :class => "edit", :id => renter.id, :name => "modal_content", :rel => "leanModal"
           = link_to image_tag("iconmonstr-x-mark-icon.svg", :alt => "Delete"), renter_url(renter.id), method: :delete, remote: false

@@ -7,9 +7,9 @@ class ManagersController < ApplicationController
   end
 
   def update
-    @manager = Manager.update_attributes(params[:manager])
+    Manager.update(params[:id],manager_params)
 
-    respond_with @manager
+    redirect_to :back
   end
 
   def create
@@ -28,6 +28,7 @@ class ManagersController < ApplicationController
   end
 
   def index
+    @manager = Manager.new
     @managers = Manager.order(:last_name);
     @title = "Manager Directory";
 
