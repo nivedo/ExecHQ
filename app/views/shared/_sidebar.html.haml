@@ -5,6 +5,7 @@
     .welcome Welcome, #{current_user.display_name}!
   %nav
     = link_to "Users", root_url, :class => "h3"
+    = link_to "Companies", companies_url, :class => ( current_page?( companies_url ) ? "small active" : "small") 
     -# = link_to "Create Manager", new_manager_url, :class => ( current_page?( new_manager_url ) ? "small active" : "small") 
     = link_to "Managers", managers_url, :class => ( current_page?( managers_url ) ? "small active" : "small") 
     -# = link_to "Create Renter", new_renter_url, :class => ( current_page?( new_renter_url ) ? "small active" : "small")
