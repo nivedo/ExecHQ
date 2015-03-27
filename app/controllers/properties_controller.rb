@@ -4,6 +4,7 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     @use_gmap = true
+    @use_calendar = true
     @nowrap = true
     respond_with @property
   end
@@ -18,6 +19,7 @@ class PropertiesController < ApplicationController
   def show
     @property = Property.find(params[:id])
     @use_gmap = true
+    @use_calendar = true
     @nowrap = true
     respond_with @property
   end

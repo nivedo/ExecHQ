@@ -8,6 +8,10 @@
       = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
       = javascript_include_tag "gmaps"
     = javascript_include_tag "https://use.typekit.net/dcn1qjt.js"
+    - if @use_calendar
+      //= javascript_include_tag "moment"
+      //= javascript_include_tag "underscore"
+      //= javascript_include_tag "clndr"
     - if @splash_override
       = stylesheet_link_tag    "splash"
       = javascript_include_tag "splash"

@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.leanModal.min.js
+//= require moment.min.js
+//= require underscore-min.js
+//= require clndr.js
 //= require main.js

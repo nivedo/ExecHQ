@@ -11,6 +11,110 @@
   padding: 0px
 }
 
+// Calendar stuff
+
+#cal_fields {
+  display: none;
+}
+
+// Basic Calendar
+
+.cal-wrapper {
+  width: 405px;
+
+  table {
+    tr {
+      border: none;
+      td {
+        border: none;
+        background-color: white;
+      }
+
+      .event {
+        color: lighten($accent-color,20);
+      }
+    }
+  }
+
+  .clndr-controls {
+    @include clearfix;
+    background-color: lighten($accent-color, 10);
+    text-align:center;
+    width: 100%;
+    color: white;
+    padding: 12px 0;
+  }
+
+  .clndr-previous-button {
+    float:left;
+    width: 135px;  
+  }
+
+  .month {
+    display:inline-block;
+    margin: 0 auto;
+    width: 135px;
+    font-weight: bold;
+  }
+
+  .clndr-next-button { 
+    float:right;
+    width: 135px;
+  }
+
+  // Complex Calendar
+
+  .clndr-grid {
+    background-color: white;
+
+    .clearfix {
+      @include clearfix;
+    }
+
+    .days-of-the-week {
+      background-color: lighten($accent-color, 30);
+      color: $blue-gray;
+    }
+
+    .header-day, .day {
+      float: left;
+      width: 14.2857%;
+      text-align: center;
+      padding: 12px 0;
+    }
+
+    .past {
+      color: $border-gray;
+    }
+
+    .event {
+      color: lighten($accent-color, 20);
+      font-weight: bold;
+    }
+
+    .rental {
+      color: lighten($accent-orange, 10);
+    }
+
+    .active {
+      color: white;
+      background-color: lighten($accent-color, 20);
+    }
+  }
+}
+
+.event-listing {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-top: 10px;
+  }
+}
+
 // Lean Modal
 
 #lean_overlay {

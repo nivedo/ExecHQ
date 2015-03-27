@@ -1,3 +1,5 @@
+= render :partial => "calendar_js"
+
 #map-canvas{:title => @property.location}
 = form_for(@property, :html => { :class => 'form-fields' }) do |f|
   //.map-location  
@@ -8,9 +10,9 @@
   .horz-links
     %ul
       %li.active
-        = link_to "Description", "#description"
+        = link_to "Description", "#description", :id => "desc_link"
       %li
-        = link_to "Calendar", "#calendar"
+        = link_to "Calendar", "#calendar", :id => "cal_link"
       %li
         = link_to "Pricing", "#pricing"
       %li
@@ -20,4 +22,5 @@
       %li
         = f.submit "Update", :class => "submit"
   = render :partial => "desc_fields", :locals => { :f => f }
-          
+  #cal_fields
+    #calendar

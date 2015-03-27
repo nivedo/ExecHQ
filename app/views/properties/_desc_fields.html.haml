@@ -1,4 +1,4 @@
-.column-form
+.column-form#desc_fields
   .description-fields
     .col5
       %label Location
@@ -11,7 +11,7 @@
           = f.select :bedrooms, [['Studio','0'],['1','1'],['2','2'],['3','3']]
         .col4
           %label Bathrooms
-          = f.select :bathrooms, [['0','0'],['0.5','0.5'],['1','1'],['1.5','1.5'],['2','2'],['2.5','2.5'],['3','3']]
+          = f.select :bathrooms, [['0','0.0'],['0.5','0.5'],['1','1.0'],['1.5','1.5'],['2','2.0'],['2.5','2.5'],['3','3.0']]
         .col4
           %label Accomodates
           = f.select :accomodates, [['1','1'],['2','2'],['3','3'],['4','4']]
