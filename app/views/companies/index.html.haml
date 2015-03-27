@@ -12,3 +12,20 @@
       = f.text_field :mailing_address, :placeholder => 'Mailing Address', :class => 'req', :autocomplete => :off
       = f.email_field :email, :placeholder => "Email", :class => "req", :autocomplete => :off
     = f.submit "Create", :class => "submit"
+%br
+%br
+
+.directory
+  %h1 View Companies
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Mailing Address
+        %th Email
+    %tbody
+    - @companies.each do |c|
+      %tr
+        %th= link_to c.name, company_url(c)
+        %th= c.mailing_address
+        %th= c.email

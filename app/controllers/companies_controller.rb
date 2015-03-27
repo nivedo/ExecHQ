@@ -15,10 +15,6 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     
-    if @company.save
-      session[:user_id] = @company.id
-    end
-
     respond_with @company
   end
 
@@ -29,13 +25,13 @@ class CompaniesController < ApplicationController
 
   def index
     @company = Company.new
-    @companies = Company.order(:last_name);
+    @companies = Company.order(:name);
     @title = "Company Directory";
 
     respond_with(@companies) do |format|
       format.json {
-        @mList = @companies.map { |u| { :id => u.id, :name => u.first_name + " " + u.last_name } }
-        @mList = @mList.find_all{ |u| u[:name].downcase.include?(params[:q].downcase) } if params[:q]
+        @mList = @companies.map { |c| { :id => c.id, :name => c.name, :mailing_address => c.mailing_address } }
+        @mList = @mList.find_all{ |c| u[:name].downcase.include?(params[:q].downcase) } if params[:q]
         render :json => @mList
       }
     end
