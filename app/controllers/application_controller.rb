@@ -10,6 +10,18 @@ class ApplicationController < ActionController::Base
   def logged_in?
     current_user != nil
   end
+
+  def require_login
+    unless current_user
+      redirect_to login_url
+    end
+  end
+
+  def direct_to_home
+    if logged_in?
+      redirect_to root_url
+    end
+  end
   
   helper_method :current_user, :has_actions?
 end

@@ -1,5 +1,6 @@
 class ManagersController < ApplicationController
   respond_to :js, :html, :json
+  before_filter :require_login, :except => [:create]
 
   def new
     @manager = Manager.new

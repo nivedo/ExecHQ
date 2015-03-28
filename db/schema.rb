@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327164944) do
+ActiveRecord::Schema.define(version: 20150327213125) do
 
   create_table "companies", force: :cascade do |t|
     t.text     "name"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20150327164944) do
     t.text     "email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "event_type"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "manager_id"
+    t.integer  "property_id"
+    t.integer  "renter_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "managers", force: :cascade do |t|

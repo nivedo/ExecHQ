@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
   respond_to :js, :html, :json
+  before_filter :require_login
 
   def new
     @property = Property.new
@@ -21,6 +22,9 @@ class PropertiesController < ApplicationController
     @use_gmap = true
     @use_calendar = true
     @nowrap = true
+
+    @event = Event.new
+
     respond_with @property
   end
 

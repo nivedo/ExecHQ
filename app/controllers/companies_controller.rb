@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   respond_to :js, :html, :json
+  before_filter :require_login
 
   def new
     @company = Company.new

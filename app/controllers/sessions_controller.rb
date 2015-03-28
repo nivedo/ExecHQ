@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  #before_filter :direct_to_home, only:[:new]
+  before_filter :direct_to_home, only:[:new]
 
   def new
     @splash_override = true;

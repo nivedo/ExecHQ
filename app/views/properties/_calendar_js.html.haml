@@ -1,23 +1,17 @@
 - content_for :head do
   %script{:type => "text/javascript"}
-    $(document).ready(function(){ |
-      $('.event-link').each( function( index ) { |
-        $(this).click(function(event){ |
-          $(".event").each( function() { |
-            $(this).removeClass("active"); |
-          }); |
-          $("." + $(this).attr("ref")).addClass("active"); |
-        }); |
-      }); |
-    }); |
-
+    events = [] |
+    - @property.events.each do |event|
+      events.push({ id: '#{j(event.id.to_s)}', start: '#{j(event.start.to_date.to_s)}', end: '#{j(event.end.to_date.to_s)}', title: '#{j(event.title)}', classtype: "rental" }) |
+    window.events = events
+  = javascript_include_tag "properties"
   %script{:type => "text/javascript", :id => "calendar-template"}
     <div class="column-form"> |
       <div class="col5"> |
         <div class="cal-wrapper"> |
           <div class="clndr-controls">  |
             <div class="clndr-previous-button">&lsaquo;</div> |
-            <div class="month"><%= month %></div> |
+            <div class="month"><%= month %> <%= year %></div> |
             <div class="clndr-next-button">&rsaquo;</div> |
           </div> |
           <div class="clndr-grid"> |

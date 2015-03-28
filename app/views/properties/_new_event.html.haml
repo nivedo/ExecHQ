@@ -1,0 +1,17 @@
+- content_for :modal do
+  .modal-form
+    %h1 New Event
+    = form_for(@event, :html => { :class => 'form-fields' }) do |f|
+      %fieldset
+        = f.hidden_field :property_id, :value => @property.id
+        = f.hidden_field :manager_id, :value => current_user.id
+        = f.hidden_field :renter_id, :value => current_user.id
+        %label Title
+        = f.text_field :title, :placeholder => 'Event Description', :class => 'req', :autocomplete => :off
+        %label Event Type
+        = f.select :event_type, [['Reservation',0],['Cleaning',1],['Repair',2],['Other',3]]
+        %label Start Time
+        = f.date_field :start
+        %label End Time
+        = f.date_field :end
+        = submit_tag "Add Event", :class => "submit"

@@ -1,5 +1,6 @@
 class RentersController < ApplicationController
   respond_to :js, :html, :json
+  before_filter :require_login
 
   def new
     @renter = Renter.new

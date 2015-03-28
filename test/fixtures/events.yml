@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  type: 1
+  start: 2015-03-27 16:31:25
+  end: 2015-03-27 16:31:25
+  manager_id: 1
+  property_id: 1
+  renter_id: 1
+
+two:
+  title: MyString
+  type: 1
+  start: 2015-03-27 16:31:25
+  end: 2015-03-27 16:31:25
+  manager_id: 1
+  property_id: 1
+  renter_id: 1

@@ -182,3 +182,20 @@ input[type="submit"] {
     list-style: none;
   }
 }
+
+.modal-form {
+  width: 400px;
+
+  h1 {
+    text-align: center;
+  }
+
+  input, select {
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}

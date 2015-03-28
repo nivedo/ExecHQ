@@ -1,4 +1,5 @@
-= render :partial => "calendar_js"
+= render :partial => "calendar_js", :property => @property
+= render :partial => "new_event", :property => @property
 
 #map-canvas{:title => @property.location}
 = form_for(@property, :html => { :class => 'form-fields' }) do |f|
