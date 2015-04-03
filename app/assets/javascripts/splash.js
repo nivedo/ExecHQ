@@ -32,6 +32,10 @@ $(document).ready(function(){
       $login.fadeIn(300);
     });
   });
+
+  $('#gmap_location').change(function(){
+    //console.log("Hello World");
+  });
 })
 
 function validateInputs(fields) {

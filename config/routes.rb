@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get "login", :to => "sessions#new", :as => "login"
   get "signup", :to => "users#new", :as => "signup"
 
+  get "search", :to => "splash#search", :as => "search"
+  get "search_itineraries" => 'splash#search_itineraries', as: 'search_itineraries'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

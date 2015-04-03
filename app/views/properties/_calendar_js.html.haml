@@ -41,6 +41,11 @@
               </li> |
             <% }); %> |
           </ul> |
+          <div class="event-add"> |
+            <a href="#modal_content" id="go" name="modal_content" rel="leanModal">+ Add New Event</a> |
+          </div> |
         </div> |
       </div> |
     </div> |
+  %script{:type => "text/javascript"}
+    $(function() { $('a[rel*=leanModal]').leanModal({ top : 200, closeButton: ".modal_close" }); });

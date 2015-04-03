@@ -6,7 +6,9 @@ function codeAddress(element) {
     geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
-            map.setZoom(17);
+            map.setZoom(13);
+            if ($('#gmap_latitude').length) { $('#gmap_latitude').val(results[0].geometry.location.k) }
+            if ($('#gmap_longitude').length) { $('#gmap_longitude').val(results[0].geometry.location.D) }
             var marker = new google.maps.Marker({
                    map: map,
                    position: results[0].geometry.location
@@ -54,7 +56,9 @@ function initialize() {
       map.fitBounds(place.geometry.viewport);
     } else {
       map.setCenter(place.geometry.location);
-      map.setZoom(17);  // Why 17? Because it looks good.
+      if ($('#gmap_latitude').length) { $('#gmap_latitude').val(place.geometry.location.k) }
+      if ($('#gmap_longitude').length) { $('#gmap_longitude').val(place.geometry.location.D) }
+      map.setZoom(13);  // Why 17? Because it looks good.
     }
     marker.setIcon(/** @type {google.maps.Icon} */({
       url: place.icon,

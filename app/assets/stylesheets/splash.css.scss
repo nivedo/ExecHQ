@@ -2,6 +2,41 @@ body {
   background-color: #f1f4f6;
 }
 
+
+// Colors
+
+$font-default: "proxima-nova";
+$header-font: "futura-pt";
+
+$off-white: #fcfcfc;
+$blue-white: #f1f4f6;
+$blue-gray: #546673;
+$border-gray: #e8eced;
+$off-white: #f9f9f9;
+$accent-color: #538dc2;
+$accent-orange: #ff5a45;
+
+$sidebar-color: $blue-white;
+$border-gray: darken($border-gray, 5);
+
+// Sizes
+
+$side-padding: 20px;
+$navbar-height: 50px;
+
+$footer-height: 40px;
+
+$sidebar-width: 180px;
+
+$max-width: 940px;
+$max-read-width: 600px;
+$transition-width: 750px;
+
+$default-radius: 3px;
+$map-width: 38%;
+$summary-height: 130px;
+
+
 .title-wrapper {
   text-align: center;
   margin: 0 auto;
@@ -77,4 +112,203 @@ body {
   #signup_form {
     display: none;
   }
+}
+
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+
+.nav {
+  height: $navbar-height;
+  background-color: white;
+  width: 100%;
+  padding-left: 20px;
+
+  strong {
+    font-size: 1.5em;
+    line-height: $navbar-height;
+  }
+
+  .logo {
+    float: left;
+  }
+
+  .form-wrapper {
+    float: left;
+    margin-left: 20px;
+    margin-top: 6px;
+  }
+
+  input {
+    float: left;
+    width: 400px;
+    height: 38px;
+    border-right: none;
+  }
+
+  input[type="submit"] {
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 0;
+    height: 38px;
+    border: none;
+    background-color: $blue-gray;
+    color: white;
+    font-size: 1.1em;
+  }
+}
+
+.itineraries {
+  top: $navbar-height;
+  margin-left: 0;
+  height: calc(100% - 50px);
+  overflow: scroll;
+  width: 100% - $map-width;
+  position: absolute;
+
+  .options {
+    background-color: white;
+    width: 100%;
+    height: 45px;
+    color: $accent-color;
+    text-align: center;
+    margin: 0 auto;
+    border-top: 1px solid $border-gray;
+    border-bottom: 1px solid $border-gray;
+
+    span {
+      line-height: 38px;
+    }
+  }
+
+  .trip-summary {
+    background-color: white;
+    width: 100%;
+    height: $summary-height;
+    margin: 0 auto;
+
+    border-top: 1px solid $off-white;
+
+    .category {
+      width: 20px;
+      height: $summary-height;
+      position:absolute;
+      overflow-y:auto;
+    }
+
+    .price {
+      text-align: right;
+      width: 120px;
+      height: 50px;
+      line-height: 50px;
+      margin-top: 20px;
+      padding-right: 18px;
+      float: right;
+      font-size: 2em;
+      font-weight: 300;
+      //font-family: "Adobe-garamond-pro";
+      background-color: lighten($accent-color,15);
+      color: white;
+    }
+
+    .trip-info {
+      margin-left: 20px;
+      padding: 20px 20px;
+      height: 100%;
+      width: 100%;
+      color: #555;
+      //float: left;
+
+      h1 { 
+        font-size: 1.2em;
+        margin-bottom: 0.2em;
+        color: #555;
+        line-height: 1.2em;
+        //color: $accent-color;
+      }
+
+      .rating {
+        margin-left: 0.3em;
+        font-size: 0.7em;
+        color: $accent-color;
+      }
+
+      span {
+        color: #999;
+      }
+    }
+
+    .walkable {
+      background-color: #79BD8F;
+    }
+
+    .taxi {
+      background-color: #FFFF9D;
+    }
+
+    .rentacar {
+      background-color: lighten(#FF6138,15);
+    }
+
+    .end {
+      background-color: transparent;
+    }
+
+    .expense-info {
+      //width: 100px;
+      //height: 130px;
+      //float: right;
+      //overflow-y:auto;
+      //width: 20%;
+      margin-left: -6px;
+      margin-top: 12px;
+      background-color: green;
+
+      h1 { 
+        font-size: 1.5em;
+        margin-bottom: 0.2em;
+      }
+
+      span {
+        color: #999;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      margin-right: 12px;
+      float: left;
+    }
+
+    .maki-icon {
+      margin-right: 6px;
+    }
+
+    .wrap {
+      width: 90px;
+    }
+  }
+}
+
+.colright {
+  float: left;
+  width: $map-width;
+}
+
+.outerwrap {
+  width: 100%;
+}
+
+.margin-map {
+  top: $navbar-height;
+  margin-left: 100% - $map-width;
+  height: calc(100% - 50px);
+  width: $map-width;
+  position: absolute;
 }

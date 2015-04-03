@@ -1,0 +1,24 @@
+- hotel_list.each do |hotel|
+  .trip-summary
+    //.category.walkable
+    .price
+      $ #{number_with_precision(hotel[:rate].to_f, :precision => 0)}
+    .trip-info
+      %h1 
+        #{hotel[:name].html_safe}
+        %span.rating
+          - if hotel[:rating] == 3
+            ★★★
+          - if hotel[:rating] == 4
+            ★★★★
+          - if hotel[:rating] == 5
+            ★★★★★
+      %span Flying into #{hotel[:airport]} &middot; #{number_with_precision(hotel[:proximity].to_f, :precision => 2)} miles to destination
+      .expense-info
+        %ul
+          %li.maki-icon.fuel
+          %li $ #{number_with_precision(hotel[:travelcost].to_f, :precision => 0)}
+          %li.maki-icon.lodging
+          %li $ #{number_with_precision(hotel[:rate].to_f, :precision => 0)}
+          %li.maki-icon.pitch
+          %li 85

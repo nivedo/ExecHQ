@@ -10,8 +10,8 @@
         = f.text_field :title, :placeholder => 'Event Description', :class => 'req', :autocomplete => :off
         %label Event Type
         = f.select :event_type, [['Reservation',0],['Cleaning',1],['Repair',2],['Other',3]]
-        %label Start Time
-        = f.date_field :start
-        %label End Time
-        = f.date_field :end
+        %label Start Date
+        = f.date_field :start, :class => 'req datepicker', :autocomplete => :off
+        %label End Date
+        = f.date_field :end, :class => 'req datepicker', :autocomplete => :off
         = submit_tag "Add Event", :class => "submit"

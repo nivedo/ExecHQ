@@ -26,6 +26,7 @@ $(document).ready(function(){
               $("." + $(this).attr("ref")).addClass("active");
             });
           });
+          $(function() { $('a[rel*=leanModal]').leanModal({ top : 200, closeButton: ".modal_close" }); });
         }
       },
       doneRendering: function() {
