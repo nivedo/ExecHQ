@@ -6,6 +6,6 @@ Expedia.setup do |config|
 	config.currency_code = 'USD' # For Example 'EUR'. Default is 'USD'
 	config.minor_rev = 28 # between 4-28 as of Jan 2015. If not set, 4 is used by EAN.
   # optional configurations...
-  config.timeout = 1 # read timeout in sec
-  config.open_timeout = 1 # connection timeout in sec
+  config.timeout = 5 # read timeout in sec
+  config.open_timeout = 5 # connection timeout in sec
 end

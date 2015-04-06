@@ -16,4 +16,6 @@
 //= require moment.min.js
 //= require underscore-min.js
 //= require clndr.js
+//= require pikaday.min.js
+//= require pikaday.jquery.js
 //= require main.js

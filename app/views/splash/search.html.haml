@@ -1,19 +1,23 @@
-.nav
-  .logo
-    %strong 
-      EXEC<span class="highlight">HQ</span>
-  .form-wrapper
-    = form_tag(search_itineraries_url, :id => 'search_form', :method => :get, :remote => true ) do
+= form_tag(search_itineraries_url, :id => 'search_form', :method => :get, :remote => true ) do
+  .nav
+    .logo
+      %strong 
+        EXEC<span class="highlight">HQ</span>
+    .form-wrapper
       = text_field_tag :location, nil, :autocomplete => :off, :placeholder => "Where do you want to go?", :id => "gmap_location"
+      = hidden_field_tag :numdays, nil, :value => 1, :id => "numdays"
       = hidden_field_tag :latitude, nil, :value => 0, :id => "gmap_latitude"
       = hidden_field_tag :longitude, nil, :value => 0, :id => "gmap_longitude"
       = submit_tag "Search", :class => "submit"
-    //= link_to "Refresh", search_itineraries_path, :remote => true
+      //= link_to "Refresh", search_itineraries_path, :remote => true
 
-.itineraries#itineraries
-  //.options 
-  //  %span Travel Options
-  = render :partial => "itineraries", :locals => { :hotel_list => @hotel_list }
+  .itineraries
+    .options
+      %label Dates
+      = text_field_tag :checkin, nil, :autocomplete => :off, :class => "datepicker", :placeholder => "Check In", :id => "checkin_date"
+      = text_field_tag :checkout, nil, :autocomplete => :off, :class => "datepicker", :placeholder => "Check Out", :id => "checkin_date"
+    #itineraries
+      = render :partial => "itineraries", :locals => { :hotel_list => @hotel_list }
 
 .margin-map
   #map-canvas{:title => "SFO"}

@@ -55,6 +55,19 @@ class SplashController < ApplicationController
   def search_itineraries
     api = Expedia::Api.new
 
+    @numdays = params[:numdays].to_i
+    @latitude = params[:latitude]
+    @longitude = params[:longitude]
+    @request_params = {:latitude => @latitude, :longitude => @longitude, :sort => "PROXIMITY", :minStarRating => 3}
+
+    if params[:checkin] != "" and params[:checkout] != ""
+      @startdate = Date.parse(params[:checkin])
+      @enddate = Date.parse(params[:checkout])
+      @request_params[:arrivalDate] = @startdate.strftime("%m/%d/%Y")
+      @request_params[:departureDate] = @enddate.strftime("%m/%d/%Y")
+      @numdays = (@enddate - @startdate).to_i
+    end
+
     # Load SFO prices
     sfo_prices = SmarterCSV.process('/Users/jayxni/Dropbox/jarvis/exechq/python/SFO_prices.csv')
     @sfo_hash = Hash.new
@@ -74,11 +87,7 @@ class SplashController < ApplicationController
     end
 
     # Compute Expedia hotels
-    @latitude = params[:latitude]
-    @longitude = params[:longitude]
-
-    response = api.get_list({:latitude => @latitude, :longitude => @longitude, 
-      :sort => "PROXIMITY", :minStarRating => 3})
+    response = api.get_list(@request_params)
 
     @api_list = response.body['HotelListResponse']['HotelList']['HotelSummary']
     @hotel_list = Array.new
@@ -96,21 +105,38 @@ class SplashController < ApplicationController
       sfo_info = @sfo_hash[entry[:hotelId]]
       unless sfo_info.nil? 
         entry[:sfo_distance] = sfo_info[:proximity]
-        entry[:sfo_fare] = sfo_info[:fare]
+        entry[:sfo_fare] = 2 * sfo_info[:fare]
       end
       sjc_info = @sjc_hash[entry[:hotelId]]
       unless sjc_info.nil?
         entry[:sjc_distance] = sjc_info[:proximity]
-        entry[:sjc_fare] = sjc_info[:fare]
+        entry[:sjc_fare] = 2 * sjc_info[:fare]
       end
 
       if entry[:sfo_fare] < entry[:sjc_fare]
         entry[:airport] = "SFO"
-        entry[:travelcost] = entry[:sfo_fare]
+        entry[:airport_fare] = entry[:sfo_fare]
       else
         entry[:airport] = "SJC"
-        entry[:travelcost] = entry[:sjc_fare]
+        entry[:airport_fare] = entry[:sjc_fare]
       end
+
+      # Approximate UberX fare per day
+      if entry[:proximity] < 0.8
+        entry[:dailycost] = 0
+      else
+        entry[:dailycost] = 2 * (2.2 + 2 * entry[:proximity])
+      end
+
+      # Hotel cost
+      entry[:hotelcost] = entry[:rate] * @numdays
+
+      # Total cost for travel
+      entry[:travelcost] = entry[:airport_fare]
+      entry[:travelcost] = entry[:travelcost] + entry[:dailycost] * @numdays
+
+      # Total cost for trip
+      entry[:totalcost] = entry[:travelcost] + entry[:hotelcost]
 
       # Validity Checks
       if entry[:sfo_distance] == 999 and entry[:sjc_distance] == 999
@@ -127,6 +153,8 @@ class SplashController < ApplicationController
         @rejected = @rejected + 1
       end
     end
+
+    @hotel_list.sort! {|a,b| a[:totalcost] <=> b[:totalcost]}
 
     respond_to do |format|
       format.js

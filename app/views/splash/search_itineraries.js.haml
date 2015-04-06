@@ -1,3 +1,4 @@
 $("#itineraries").html("#{j(render partial: 'itineraries', :locals => { :hotel_list => @hotel_list })}");
 console.log("#{j(@latitude)} #{j(@longitude)}")
 console.log("#{j(@rejected.to_s)}")
+console.log("#{j(@request_params.to_s)}")

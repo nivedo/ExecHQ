@@ -2,7 +2,7 @@
   .trip-summary
     //.category.walkable
     .price
-      $ #{number_with_precision(hotel[:rate].to_f, :precision => 0)}
+      <sup>$</sup>#{number_with_precision(hotel[:totalcost].to_f, :precision => 0)}
     .trip-info
       %h1 
         #{hotel[:name].html_safe}
@@ -19,6 +19,6 @@
           %li.maki-icon.fuel
           %li $ #{number_with_precision(hotel[:travelcost].to_f, :precision => 0)}
           %li.maki-icon.lodging
-          %li $ #{number_with_precision(hotel[:rate].to_f, :precision => 0)}
+          %li $ #{number_with_precision(hotel[:hotelcost].to_f, :precision => 0)}
           %li.maki-icon.pitch
           %li 85
